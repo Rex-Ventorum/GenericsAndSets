@@ -11,13 +11,12 @@ public class Dog {
 
     @Override
     public String toString() {
-        return "Dog{" + "name=" + name + ", rabiesId=" + rabiesId + '}';
+        return rabiesId + ": " + name;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.name);
         hash = 97 * hash + this.rabiesId;
         return hash;
     }

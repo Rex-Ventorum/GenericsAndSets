@@ -10,15 +10,15 @@ public class Employee {
     private String ssn;
     private Address address;
 
-    public Employee(String lastName, String firstName, String ssn, String empId){
+    public Employee(String firstName, String lastName, String ssn, String empId){
         this.lastName = lastName;
         this.firstName = firstName;
         this.ssn = ssn;
-        empId = "" + UUID.randomUUID();
+        this.empId = empId;
     }
     
-    public Employee(String lastName, String firstName, String ssn) {
-        this(lastName,firstName,ssn,""+UUID.randomUUID());
+    public Employee(String firstName, String lastName, String ssn) {
+        this(firstName,lastName,ssn,""+UUID.randomUUID());
     }
     
     public String getSsn() {
