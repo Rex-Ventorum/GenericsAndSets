@@ -1,5 +1,7 @@
 package common;
 
+import java.util.Objects;
+
 public class Address {
     private String address1;
     private String city;
@@ -7,6 +9,51 @@ public class Address {
     private String zipCode;
     private String phone;
     private String email;
+
+    @Override
+    public String toString() {
+        return address1 + "\n" + 
+               city + " " + state + " ," + zipCode + "\n" + 
+               phone + "\n" + 
+               email;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + Objects.hashCode(this.address1);
+        hash = 97 * hash + Objects.hashCode(this.city);
+        hash = 97 * hash + Objects.hashCode(this.phone);
+        hash = 97 * hash + Objects.hashCode(this.email);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Address other = (Address) obj;
+        if (!Objects.equals(this.address1, other.address1)) {
+            return false;
+        }
+        if (!Objects.equals(this.city, other.city)) {
+            return false;
+        }
+        if (!Objects.equals(this.phone, other.phone)) {
+            return false;
+        }
+        if (!Objects.equals(this.email, other.email)) {
+            return false;
+        }
+        return true;
+    }
 
     public String getAddress1() {
         return address1;
